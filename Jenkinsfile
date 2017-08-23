@@ -53,6 +53,7 @@ stages {
         sh "wget http://addteq1.mylabserver.com/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
       }
+  input 'Do you want to proceed to the Deployment?'
     }
     stage('Promote to Green') {
       agent {
@@ -65,7 +66,6 @@ stages {
         sh "cp /var/www/html/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
       }
     }
- input 'Do you want to proceed to the Deployment?'
 stage('deploy_input') {
     agent {
         label 'apache'
