@@ -66,7 +66,7 @@ stages {
       }
     }
  input 'Do you want to proceed to the Deployment?'
-stage('deploy') {
+stage('deploy_input') {
     agent {
         label 'apache'
       }
