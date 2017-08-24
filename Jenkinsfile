@@ -38,7 +38,7 @@ stages {
     }
     stage("Running on CentOS") {
       agent {
-        label 'CentOS'
+        label 'linux'
       }
       steps {
         sh "wget http://addteq1.mylabserver.com/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
